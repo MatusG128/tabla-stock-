@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-11-2023 a las 21:04:34
+-- Tiempo de generación: 06-11-2023 a las 21:51:19
 -- Versión del servidor: 10.1.28-MariaDB
 -- Versión de PHP: 5.6.32
 
@@ -25,47 +25,49 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `platillos`
+-- Estructura de tabla para la tabla `tbl_stock`
 --
 
-CREATE TABLE `platillos` (
-  `id` int(11) NOT NULL,
-  `nombre` varchar(100) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
-  `precio` float(6,2) NOT NULL,
-  `disponible` int(11) NOT NULL
+CREATE TABLE `tbl_stock` (
+  `id_articulo` int(11) NOT NULL,
+  `id_provedor` varchar(10) CHARACTER SET utf8 COLLATE utf8_spanish_ci NOT NULL,
+  `maximo` int(10) NOT NULL,
+  `minimo` int(10) NOT NULL,
+  `descripcion` varchar(50) NOT NULL,
+  `nombre_articulo` varchar(100) NOT NULL,
+  `unidad_medida` varchar(20) NOT NULL,
+  `cantidad` int(10) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `platillos`
+-- Volcado de datos para la tabla `tbl_stock`
 --
 
-INSERT INTO `platillos` (`id`, `nombre`, `precio`, `disponible`) VALUES
-(1, 'Mariscos', 50.00, 1),
-(2, 'Lazaña', 60.00, 1),
-(3, 'Chuleta con patatas', 85.00, 0),
-(4, 'Milaneza', 30.00, 1);
+INSERT INTO `tbl_stock` (`id_articulo`, `id_provedor`, `maximo`, `minimo`, `descripcion`, `nombre_articulo`, `unidad_medida`, `cantidad`) VALUES
+(1, '10', 1500, 500, 'escencia de vainilla francesa', 'vainilla francesa', 'ml', 1200);
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `platillos`
+-- Indices de la tabla `tbl_stock`
 --
-ALTER TABLE `platillos`
-  ADD PRIMARY KEY (`id`);
+ALTER TABLE `tbl_stock`
+  ADD PRIMARY KEY (`id_articulo`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `platillos`
+-- AUTO_INCREMENT de la tabla `tbl_stock`
 --
-ALTER TABLE `platillos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+ALTER TABLE `tbl_stock`
+  MODIFY `id_articulo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
